@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # encoding: UTF-8
 
-"""A number guessing game in the Dutch language"""
+"""A number guessing game"""
 
 __author__ = "Léon Spaans"
 __date__ = "2017-02-04"
@@ -13,7 +13,7 @@ import random
 
 class NumberGuessing(object):
     """
-    A number guessing game in the Dutch language.
+    A number guessing game.
     """
     def __init__(self, max_number=100, max_turns=7):
         """
@@ -55,7 +55,7 @@ class NumberGuessing(object):
         while not input_max_number.isdigit():
             input_max_number = raw_input(
                 (
-                    "Wat is de bovengrens [{max_number}]? "
+                    "What is the upper boundary [default={max_number}]? "
                 ).format(
                     max_number=self._max_number
                 )
@@ -76,7 +76,7 @@ class NumberGuessing(object):
         while not input_max_turns.isdigit():
             input_max_turns = raw_input(
                 (
-                    "Hoe vaak wil je raden [{max_turns}]? "
+                    "How many guesses would you like [default={max_turns}]? "
                 ).format(
                     max_turns=self._max_turns
                 )
@@ -92,14 +92,14 @@ class NumberGuessing(object):
         Initializes the player name.
         """
         while self._name == "":
-            self._name = raw_input("Wat is je naam? ")
+            self._name = raw_input("What's your name? ")
 
     def _main_loop(self):
         """
         The main game loop.
         """
         while self._turn < self._max_turns:
-            guess = raw_input("Kies een getal: ")
+            guess = raw_input("Choose a number: ")
 
             try:
                 guess = int(guess)
@@ -107,7 +107,7 @@ class NumberGuessing(object):
                 continue
 
             if guess in self._guessed:
-                print "Die heb je al geraden!"
+                print "You have already guessed that number!"
                 continue
 
             self._turn += 1
@@ -117,15 +117,15 @@ class NumberGuessing(object):
                 self._won = True
                 break
             elif guess < self._number:
-                print "Je moet hoger raden!"
+                print "You need to guess higher!"
             else:
-                print "Je moet lager raden!"
+                print "You need to guess lower!"
 
         if self._won is True:
             print (
-                "Gefeliciteerd {name}!! Het getal was inderdaad " +
-                "{number}. Je hebt het in {turn} beurten geraden. " +
-                "Goed zo!"
+                "Congratulations {name}!! The number was in fact " +
+                "{number}. You have guessed it in {turn} turns. " +
+                "Well done!"
             ).format(
                 name=self._name,
                 number=self._number,
@@ -133,21 +133,23 @@ class NumberGuessing(object):
             )
         else:
             print (
-                "Jammer {name}, je hebt het niet kunnen raden in " +
-                "{max_turns} beurten. Het getal was {number}."
+                "Too bad {name}, you were not able to guess it in " +
+                "{max_turns} turns. The number was {number}."
             ).format(
                 name=self._name,
                 max_turns=self._max_turns,
                 number=self._number
             )
 
-        print "Einde!"
+        print "The end!"
 
     def start(self):
         """
         Starts the game.
         """
-        print "Hoi {name} we gaan getal raden!".format(name=self._name)
+        print "Hi {name}, we are going to play Guess the Number!".format(
+            name=self._name
+        )
 
         self._main_loop()
 
@@ -167,7 +169,7 @@ def main():
     try:
         NumberGuessing().start()
     except KeyboardInterrupt:
-        print "\nTot ziens!"
+        print "\nSee you next time!"
 
 if __name__ == "__main__":
     main()
