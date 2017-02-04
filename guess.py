@@ -4,6 +4,8 @@
 """A number guessing game in the Dutch language"""
 
 __author__ = "Léon Spaans"
+__date__ = "2017-02-04"
+__version__ = "0.1.0"
 
 import math
 import random
