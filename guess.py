@@ -55,7 +55,7 @@ class NumberGuessing(object):
         while not input_max_number.isdigit():
             input_max_number = raw_input(
                 (
-                    "Wat is de bovengrens [{max_number}]? "
+                    "Wat is de bovengrens [enter={max_number}]? "
                 ).format(
                     max_number=self._max_number
                 )
@@ -76,7 +76,7 @@ class NumberGuessing(object):
         while not input_max_turns.isdigit():
             input_max_turns = raw_input(
                 (
-                    "Hoe vaak wil je raden [{max_turns}]? "
+                    "Hoe vaak wil je raden [enter={max_turns}]? "
                 ).format(
                     max_turns=self._max_turns
                 )
