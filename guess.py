@@ -147,7 +147,7 @@ class NumberGuessing(object):
         """
         Starts the game.
         """
-        print "Hoi {name} we gaan getal raden!".format(name=self._name)
+        print "Hoi {name}, we gaan Getal Raden spelen!".format(name=self._name)
 
         self._main_loop()
 
