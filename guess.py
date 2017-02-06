@@ -38,13 +38,14 @@ class NumberGuessing(object):
         Initializes new game.
         """
         self._guessed = set([])
-        self._number = int(self._max_number * random.random())
         self._turn = 0
         self._won = False
 
         self._init_name()
         self._init_max_number()
         self._init_max_turns()
+
+        self._number = int(self._max_number * random.random())
 
     def _init_max_number(self):
         """
@@ -85,7 +86,7 @@ class NumberGuessing(object):
             if input_max_turns == "":
                 input_max_turns = str(self._max_turns)
 
-        self._max_turns = int(self._max_turns)
+        self._max_turns = int(input_max_turns)
 
     def _init_name(self):
         """
